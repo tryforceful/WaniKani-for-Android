@@ -1061,6 +1061,21 @@ public class LocalIMEKeyboard implements Keyboard {
         ew.setImeActionLabel (">>", EditorInfo.IME_ACTION_DONE);
         ew.setImeOptions (EditorInfo.IME_ACTION_DONE);
 
+        if(true)
+        {
+          ew.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24);
+          //ew.setHeight(48);
+
+            RelativeLayout.LayoutParams rparams;
+
+            rparams = (RelativeLayout.LayoutParams) divw.getLayoutParams ();
+            rparams.height = 200; //frect.top + (int) utils.pxFromDp(8);
+            //rparams.leftMargin = frect.left + (int) utils.pxFromDp(8);
+            //rparams.width = LayoutParams.MATCH_PARENT;
+            divw.setLayoutParams (rparams);
+
+        }
+
         qvw = (TextView) wav.findViewById (R.id.txt_question_override);
 
         next = (Button) wav.findViewById (R.id.ime_next);
