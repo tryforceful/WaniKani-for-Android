@@ -48,6 +48,7 @@ public abstract class PrefManager {
     private static final String PREF_HW_ACCEL_MESSAGE = "pref_hw_accel_message";
     private static final String PREF_MUTE = "pref_mute";
     private static final String PREF_HW_ACCEL = "pref_hw_accel";
+    private static final String PREF_MOBILE_CSS = "pref_mobile_css";
     private static final String PREF_REVIEWS_LESSONS_FULLSCREEN = "pref_rev_les_fullscreen";
     private static final String PREF_SHOW_NOTIFICATIONS = "pref_show_notifications";
     private static final String PREF_ENABLE_REMINDER_NOTIFICATION = "pref_enable_reminder_notification";
@@ -305,6 +306,13 @@ public abstract class PrefManager {
 
     public static void setHWAccel(boolean value) {
         prefs.edit().putBoolean(PREF_HW_ACCEL, value).commit();
+    }
+
+    public static boolean getMobileCSS() { return prefs.getBoolean(PREF_MOBILE_CSS, true);
+    }
+
+    public static void setMobileCSS(boolean value) {
+        prefs.edit().putBoolean(PREF_MOBILE_CSS, value).commit();
     }
 
     public static boolean toggleMute() {

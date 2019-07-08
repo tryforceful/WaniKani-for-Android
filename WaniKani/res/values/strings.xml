@@ -224,8 +224,10 @@
     <string name="pref_title_srs_indication">SRS indication</string>
     <string name="pref_summary_srs_indication">Show current item SRS level during reviews</string>
     <string name="pref_title_hw_accel">HW acceleration</string>
-    <string name="pref_summary_hw_accel">Enables HW acceleration. You may need disable this if
+    <string name="pref_summary_hw_accel">Enables HW acceleration. You may need to disable this if
         reviews are rendered incorrectly.</string>
+    <string name="pref_title_mobile_css">Enhanced mobile layout</string>
+    <string name="pref_summary_mobile_css">Use a zoomed layout better suited for mobile devices on the Reviews page</string>
     <string name="pref_title_custom_fonts">Use custom fonts</string>
     <string name="pref_summary_custom_fonts">Use custom fonts for Japanese text instead of the system ones</string>
     <string name="pref_category_lessons_and_reviews">Lessons and reviews</string>

@@ -1219,7 +1219,7 @@ public class WebReviewActivity extends AppCompatActivity {
 
     private void enhanceMobileCSS ()
     {
-      if(true) //make a hook here
+      if(PrefManager.getMobileCSS())
       {
         wv.js(EnhanceMobileCSS.JS_CODE);
 

@@ -134,7 +134,27 @@ public class AvailableCard extends Fragment {
             }
         });
 
+        mLessonsAvailable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = PrefManager.getWebViewIntent(context);
+                intent.setAction(WebReviewActivity.OPEN_ACTION);
+                intent.setData(Uri.parse(Browser.LESSON_URL));
+                getActivity().startActivityForResult(intent, BROWSER_REQUEST);
+            }
+        });
+
         mReviewsGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = PrefManager.getWebViewIntent(context);
+                intent.setAction(WebReviewActivity.OPEN_ACTION);
+                intent.setData(Uri.parse(Browser.REVIEW_URL));
+                getActivity().startActivityForResult(intent, BROWSER_REQUEST);
+            }
+        });
+
+        mReviewsAvailable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = PrefManager.getWebViewIntent(context);

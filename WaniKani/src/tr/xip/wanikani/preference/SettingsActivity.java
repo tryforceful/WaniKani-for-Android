@@ -75,6 +75,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     CheckBox mSRSIndicationCheckBox;
     RelativeLayout mHWAccel;
     CheckBox mHWAccelCheckBox;
+    RelativeLayout mMobileCSS;
+    CheckBox mMobileCSSCheckBox;
     TextView mDeveloperOpenSourceLicenses;
     TextView mDeveloperAppVersionSummary;
 
@@ -133,6 +135,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         mSRSIndicationCheckBox = (CheckBox) findViewById(R.id.settings_userscripts_srs_indication_check_box);
         mHWAccel = (RelativeLayout) findViewById(R.id.settings_userscripts_hw_accel);
         mHWAccelCheckBox = (CheckBox) findViewById(R.id.settings_userscripts_hw_accel_check_box);
+        mMobileCSS = (RelativeLayout) findViewById(R.id.settings_userscripts_mobile_css);
+        mMobileCSSCheckBox = (CheckBox) findViewById(R.id.settings_userscripts_mobile_css_check_box);
         mDeveloperOpenSourceLicenses = (TextView) findViewById(R.id.settings_developer_open_source_licenses);
         mDeveloperAppVersionSummary = (TextView) findViewById(R.id.settings_developer_app_version_summary);
 
@@ -297,6 +301,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 PrefManager.setHWAccel(isChecked);
             }
         });
+
+        mMobileCSSCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                PrefManager.setMobileCSS(isChecked);
+            }
+        });
         setUp();
     }
 
@@ -328,6 +339,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         loadMuteButton();
         loadSRSIndication();
         loadHWAccel();
+        loadMobileCSS();
         loadAppVersionSummary();
     }
 
@@ -456,6 +468,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         mHWAccelCheckBox.setChecked(PrefManager.getHWAccel());
     }
 
+    private void loadMobileCSS() {
+        mMobileCSSCheckBox.setChecked(PrefManager.getMobileCSS());
+    }
+
     private void loadAppVersionSummary() {
         try {
             PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -548,6 +564,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.settings_userscripts_hw_accel:
                 mHWAccelCheckBox.toggle();
+                break;
+            case R.id.settings_userscripts_mobile_css:
+                mMobileCSSCheckBox.toggle();
                 break;
             case R.id.settings_developer_open_source_licenses:
                 new OpenSourceLicensesDialogFragment().show(getSupportFragmentManager(),
